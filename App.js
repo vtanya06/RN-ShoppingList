@@ -8,12 +8,12 @@ import AddItem from './components/AddItem/';
 const App = () =>{
 
   const [items, setItems] = useState([
-    {id: 1, text: 'Bread'},
-    {id: 2, text: 'Jam'},
-    {id: 3, text: 'Milk'},
-    {id: 4, text: 'Butter'},
-    {id: 5, text: 'Juice'},
-    {id: 6, text: 'Banana'},
+    {id: Math.random(), text: 'Bread'},
+    {id: Math.random(), text: 'Jam'},
+    {id: Math.random(), text: 'Milk'},
+    {id: Math.random(), text: 'Butter'},
+    {id: Math.random(), text: 'Juice'},
+    {id: Math.random(), text: 'Banana'},
 
   ]);
 
@@ -41,7 +41,7 @@ const addItem = (text) =>{
       <Header title='Shopping List'/>
       <AddItem addItem={addItem}/>
       <FlatList 
-        data={items}
+        data={items.sort((a, b) => a.text.localeCompare(b.text))}
         renderItem={({item}) =>
           <ListItem item={item}
           deleteItem={deleteItem}/>}/>
